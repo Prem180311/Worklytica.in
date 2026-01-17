@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Worklytica IT Solution Pvt Ltd | AI & Customer Experience Solutions</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    :root{
+      --bg:#070A12;
+      --card:#0E1322;
+      --muted:#B8C0D4;
+      --text:#ffffff;
+      --brand:#00D4FF;
+      --brand2:#FFB400;
+      --line:rgba(255,255,255,0.10);
+      --shadow:0 18px 45px rgba(0,0,0,0.45);
+      --radius:18px;
+    }
+
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',sans-serif;}
+    body{background:var(--bg);color:var(--text);overflow-x:hidden;line-height:1.6;}
+    a{text-decoration:none;color:inherit;}
+    html{scroll-behavior:smooth;}
+
+    /* Header */
+    header{
+      position:sticky;top:0;z-index:999;
+      background:rgba(7,10,18,0.72);
+      backdrop-filter:blur(14px);
+      border-bottom:1px solid var(--line);
+    }
+
+    .topbar{
+      max-width:1200px;margin:auto;
+      display:flex;justify-content:space-between;gap:10px;
+      padding:10px 18px;font-size:13px;color:var(--muted);
+      flex-wrap:wrap;
+    }
+    .topbar strong{color:#fff;font-weight:600;}
+
+    .navwrap{
+      max-width:1200px;margin:auto;
+      display:flex;align-items:center;justify-content:space-between;gap:14px;
+      padding:14px 18px;
+    }
+
+    .logo{
+      display:flex;flex-direction:column;line-height:1.1;
+    }
+    .logo b{
+      font-size:18px;
+      background:linear-gradient(90deg,var(--brand2),#fff,var(--brand));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .logo span{font-size:12px;color:var(--muted);}
+
+    nav ul{
+      list-style:none;display:flex;gap:18px;align-items:center;flex-wrap:wrap;
+    }
+    nav a{
+      font-size:14px;font-weight:600;color:#fff;
+      padding:9px 12px;border-radius:12px;
+      transition:.25s;
+      opacity:0.92;
+    }
+    nav a:hover{background:rgba(255,255,255,0.08);opacity:1;}
+
+    .nav-cta{
+      display:flex;gap:10px;align-items:center;flex-wrap:wrap;
+    }
+    .btn{
+      padding:10px 14px;border-radius:14px;
+      font-weight:800;font-size:13px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.05);
+      transition:.25s;
+    }
+    .btn:hover{transform:translateY(-2px);background:rgba(255,255,255,0.08);}
+    .btn.primary{
+      background:linear-gradient(90deg,var(--brand2),#ffd36b);
+      color:#0b2c4d;border:none;
+    }
+
+    /* Hero */
+    .hero{
+      padding:70px 18px 40px;
+      position:relative;
+      overflow:hidden;
+    }
+    .hero::before{
+      content:"";
+      position:absolute;
+      width:700px;height:700px;
+      background:radial-gradient(circle, rgba(0,212,255,0.16), transparent 60%);
+      right:-260px;top:-260px;
+      filter:blur(2px);
+      z-index:0;
+    }
+    .hero::after{
+      content:"";
+      position:absolute;
+      width:650px;height:650px;
+      background:radial-gradient(circle, rgba(255,180,0,0.14), transparent 60%);
+      left:-260px;bottom:-260px;
+      z-index:0;
+    }
+
+    .hero-inner{
+      max-width:1200px;margin:auto;
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:22px;
+      align-items:center;
+      position:relative;
+      z-index:1;
+    }
+
+    .kicker{
+      display:inline-flex;gap:10px;align-items:center;
+      padding:8px 12px;border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.04);
+      color:var(--muted);font-weight:700;font-size:13px;
+      margin-bottom:12px;
+    }
+    .dot{
+      width:9px;height:9px;border-radius:50%;
+      background:var(--brand);
+      box-shadow:0 0 18px rgba(0,212,255,0.6);
+    }
+
+    .hero h1{
+      font-size:46px;
+      line-height:1.05;
+      margin-bottom:14px;
+      letter-spacing:-0.5px;
+    }
+    .hero p{
+      color:var(--muted);
+      max-width:660px;
+      font-size:15px;
+      margin-bottom:18px;
+    }
+
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;}
+    .ghost{
+      border:1px solid rgba(255,255,255,0.18);
+      background:transparent;
+      color:#fff;
+    }
+
+    .hero-card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:20px;
+      box-shadow:var(--shadow);
+    }
+    .hero-card h3{font-size:16px;margin-bottom:10px;}
+    .hero-card ul{padding-left:18px;color:var(--muted);}
+    .hero-card li{margin:8px 0;font-size:14px;}
+
+    .metrics{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:10px;
+      margin-top:14px;
+    }
+    .metric{
+      padding:14px;border-radius:16px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,0.04);
+      text-align:center;
+    }
+    .metric b{
+      display:block;
+      font-size:18px;
+      background:linear-gradient(90deg,var(--brand2),#fff,var(--brand));
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+    .metric span{font-size:12px;color:var(--muted);}
+
+    /* Sections */
+    section{
+      max-width:1200px;margin:55px auto;padding:0 18px;
+    }
+    .sec-title{
+      display:flex;justify-content:space-between;gap:14px;align-items:flex-end;
+      flex-wrap:wrap;
+      margin-bottom:18px;
+    }
+    .sec-title h2{
+      font-size:26px;
+      letter-spacing:-0.3px;
+    }
+    .sec-title p{color:var(--muted);max-width:680px;font-size:14px;}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+      gap:14px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:18px;
+      transition:.25s;
+      box-shadow:0 10px 28px rgba(0,0,0,0.28);
+    }
+    .card:hover{transform:translateY(-5px);border-color:rgba(255,255,255,0.18);}
+    .card h4{font-size:16px;margin-bottom:8px;}
+    .card p{color:var(--muted);font-size:14px;margin-bottom:12px;}
+    .pill{
+      display:inline-flex;
+      padding:6px 10px;border-radius:999px;
+      background:rgba(0,212,255,0.12);
+      border:1px solid rgba(0,212,255,0.18);
+      font-weight:700;font-size:12px;color:#d9f8ff;
+    }
+
+    /* Insights / Case style */
+    .wide{
+      display:grid;
+      grid-template-columns:1.2fr 0.8fr;
+      gap:14px;
+    }
+    .feature{
+      min-height:220px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      position:relative;
+      overflow:hidden;
+    }
+    .feature::before{
+      content:"";
+      position:absolute;
+      width:380px;height:380px;
+      right:-180px;top:-180px;
+      background:radial-gradient(circle, rgba(0,212,255,0.20), transparent 62%);
+      z-index:0;
+    }
+    .feature *{position:relative;z-index:1;}
+
+    /* Contact */
+    .contact{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+
+    .contact .card form input,
+    .contact .card form textarea{
+      width:100%;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(0,0,0,0.25);
+      color:#fff;
+      outline:none;
+      margin:8px 0;
+      font-size:14px;
+    }
+    .contact .card form input::placeholder,
+    .contact .card form textarea::placeholder{
+      color:rgba(255,255,255,0.55);
+    }
+
+    .submit{
+      width:100%;
+      padding:12px;
+      border-radius:14px;
+      border:none;
+      font-weight:900;
+      cursor:pointer;
+      background:linear-gradient(90deg,var(--brand2),#ffd36b);
+      color:#0b2c4d;
+      transition:.25s;
+    }
+    .submit:hover{transform:translateY(-2px);opacity:0.95;}
+
+    /* Footer */
+    footer{
+      margin-top:50px;
+      border-top:1px solid var(--line);
+      background:rgba(255,255,255,0.03);
+    }
+    .foot{
+      max-width:1200px;margin:auto;
+      padding:26px 18px;
+      display:grid;
+      grid-template-columns:2fr 1fr 1fr 1fr;
+      gap:14px;
+    }
+    .foot h5{margin-bottom:10px;font-size:14px;}
+    .foot a{display:block;color:var(--muted);margin:8px 0;font-size:13px;}
+    .foot a:hover{color:#fff;}
+    .copyright{
+      max-width:1200px;margin:auto;
+      padding:14px 18px;
+      color:var(--muted);
+      font-size:12px;
+      display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+    }
+
+    /* Floating CTA */
+    .float{
+      position:fixed;right:18px;bottom:18px;
+      display:flex;flex-direction:column;gap:10px;
+      z-index:9999;
+    }
+    .float a{
+      padding:12px 16px;border-radius:999px;
+      font-weight:900;font-size:13px;
+      box-shadow:0 14px 34px rgba(0,0,0,0.45);
+      border:1px solid var(--line);
+      backdrop-filter:blur(12px);
+      transition:.25s;
+    }
+    .float a:hover{transform:translateY(-2px);opacity:0.96;}
+    .wa{background:rgba(37,211,102,0.95);}
+    .call{background:rgba(0,212,255,0.18);}
+
+    @media(max-width:900px){
+      .hero-inner{grid-template-columns:1fr;}
+      .wide{grid-template-columns:1fr;}
+      .contact{grid-template-columns:1fr;}
+      .foot{grid-template-columns:1fr 1fr;}
+      .hero h1{font-size:36px;}
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="topbar">
+    <div>📞 <strong>6209267516</strong> | <strong>7406663322</strong> &nbsp; | &nbsp; 📧 <strong>worklytica@gmail.com</strong></div>
+    <div>📍 C/o Ajit Choudhary, Anand Nagar, Ratu Road, Ranchi - 834001</div>
+  </div>
+
+  <div class="navwrap">
+    <div class="logo">
+      <b>Worklytica IT Solution Pvt Ltd</b>
+      <span>AI Automation • Customer Experience • Support Solutions</span>
+    </div>
+
+    <nav>
+      <ul>
+        <li><a href="#solutions">Solutions</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#insights">Insights</a></li>
+        <li><a href="#about">Company</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-cta">
+      <a class="btn ghost" href="tel:6209267516">Call</a>
+      <a class="btn primary" href="#contact">Get Started</a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="kicker"><span class="dot"></span> Enterprise AI + Support Operations</div>
+      <h1>Build Smarter Customer Support With AI & Human Expertise</h1>
+      <p>
+        Worklytica IT Solution Pvt Ltd helps businesses optimize customer experience through
+        AI automation, chatbot training, and multi-channel support services.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn primary" href="#contact">Talk to Our Team</a>
+        <a class="btn ghost" href="#services">Explore Services</a>
+      </div>
+    </div>
+
+    <div class="hero-card">
+      <h3>What We Deliver</h3>
+      <ul>
+        <li>AI Automation for faster operations</li>
+        <li>Chatbot Training & Optimization</li>
+        <li>Voice, Email & Chat Support</li>
+        <li>AI Auto Call Support (follow-up & engagement)</li>
+      </ul>
+
+      <div class="metrics">
+        <div class="metric"><b>24/7</b><span>Support Ready</span></div>
+        <div class="metric"><b>Fast</b><span>Response Time</span></div>
+        <div class="metric"><b>Secure</b><span>Process Driven</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOLUTIONS -->
+<section id="solutions">
+  <div class="sec-title">
+    <div>
+      <h2>Solutions Built for Modern Businesses</h2>
+      <p>Wipro-style enterprise layout: clean, clear and premium sections for high trust.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <span class="pill">AI Automation</span>
+      <h4>Workflow & Process Automation</h4>
+      <p>Reduce repetitive tasks and improve productivity with smart automation models.</p>
+    </div>
+
+    <div class="card">
+      <span class="pill">Customer Experience</span>
+      <h4>Multichannel Customer Support</h4>
+      <p>Voice, chat and email support solutions designed to improve customer satisfaction.</p>
+    </div>
+
+    <div class="card">
+      <span class="pill">Conversational AI</span>
+      <h4>Chatbot Training & Management</h4>
+      <p>Train chatbots for accurate responses and better customer engagement.</p>
+    </div>
+
+    <div class="card">
+      <span class="pill">Engagement</span>
+      <h4>AI Auto Call Support</h4>
+      <p>Automate call follow-ups, reminders and customer outreach workflows.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="sec-title">
+    <div>
+      <h2>Services</h2>
+      <p>Designed for startups, SMBs and enterprises who want fast and scalable support.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card"><h4>AI Automation</h4><p>Business process automation for faster delivery and less manual work.</p></div>
+    <div class="card"><h4>Chatbot Trainer</h4><p>Chatbot optimization, training datasets and response improvement.</p></div>
+    <div class="card"><h4>Customer Support</h4><p>Professional customer support services to strengthen brand trust.</p></div>
+    <div class="card"><h4>Email Support</h4><p>Resolution-based email handling with high service quality.</p></div>
+    <div class="card"><h4>Voice Support</h4><p>Inbound/outbound voice operations with trained staff.</p></div>
+    <div class="card"><h4>AI Auto Call Support</h4><p>Automated call systems for reminders and engagement.</p></div>
+    <div class="card"><h4>Chat Support</h4><p>Real-time chat handling for faster customer satisfaction.</p></div>
+  </div>
+</section>
+
+<!-- INSIGHTS -->
+<section id="insights">
+  <div class="sec-title">
+    <div>
+      <h2>Insights & Highlights</h2>
+      <p>Add blogs, updates, and case studies here—just like Wipro style corporate websites.</p>
+    </div>
+  </div>
+
+  <div class="wide">
+    <div class="card feature">
+      <div>
+        <span class="pill">Featured</span>
+        <h4 style="margin-top:10px;">AI-Powered Support That Scales With Your Business</h4>
+        <p>
+          We combine smart automation with professional support teams to deliver consistent customer experience.
+        </p>
+      </div>
+      <a class="btn ghost" href="#contact" style="width:max-content;">Request Consultation →</a>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <span class="pill">CX</span>
+        <h4>Better Customer Satisfaction</h4>
+        <p>Structured support processes to improve customer trust and retention.</p>
+      </div>
+      <div class="card">
+        <span class="pill">AI</span>
+        <h4>Faster Resolution Time</h4>
+        <p>Automation reduces response time and boosts service quality.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-title">
+    <div>
+      <h2>About Worklytica</h2>
+      <p>
+        Worklytica IT Solution Pvt Ltd is based in Ranchi and provides AI automation and customer support solutions
+        to help businesses grow with confidence.
+      </p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="card">
+      <h4>Who We Are</h4>
+      <p>We provide AI automation, chat support, voice support and email support services.</p>
+    </div>
+    <div class="card">
+      <h4>Our Mission</h4>
+      <p>To deliver fast, scalable and high-quality customer support with smart AI automation.</p>
+    </div>
+    <div class="card">
+      <h4>Our Focus</h4>
+      <p>Professional delivery, customer satisfaction and cost-effective solutions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="sec-title">
+    <div>
+      <h2>Contact Us</h2>
+      <p>Let’s discuss how Worklytica can support your business with AI and customer experience services.</p>
+    </div>
+  </div>
+
+  <div class="contact">
+    <div class="card">
+      <h4>Office Details</h4>
+      <p style="color:var(--muted);margin-top:8px;">
+        <b style="color:#fff;">Worklytica IT Solution Pvt Ltd</b><br/>
+        📞 6209267516 | 7406663322<br/>
+        📧 worklytica@gmail.com<br/>
+        📍 C/o Ajit Choudhary, Anand Nagar, Ratu Road, Ranchi - 834001
+      </p>
+    </div>
+
+    <div class="card">
+      <h4>Send Message</h4>
+      <form>
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <input type="text" placeholder="Phone Number" required>
+        <textarea rows="4" placeholder="Your Message" required></textarea>
+        <button class="submit" type="submit">Submit</button>
+      </form>
+      <p style="margin-top:8px;font-size:12px;color:var(--muted);">
+        *This form is demo. I can connect it to Gmail/WhatsApp.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <div>
+      <h5>Worklytica IT Solution Pvt Ltd</h5>
+      <p style="color:var(--muted);font-size:13px;max-width:520px;">
+        AI Automation & Customer Support Services built for modern businesses.
+      </p>
+    </div>
+
+    <div>
+      <h5>Company</h5>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="#services">Services</a>
+    </div>
+
+    <div>
+      <h5>Solutions</h5>
+      <a href="#solutions">AI Automation</a>
+      <a href="#solutions">Chatbot Trainer</a>
+      <a href="#solutions">Customer Experience</a>
+    </div>
+
+    <div>
+      <h5>Support</h5>
+      <a href="tel:6209267516">Call Now</a>
+      <a href="mailto:worklytica@gmail.com">Email Us</a>
+    </div>
+  </div>
+
+  <div class="copyright">
+    <div>© <span id="year"></span> Worklytica IT Solution Pvt Ltd. All Rights Reserved.</div>
+    <div>Designed for Enterprise Look ✅</div>
+  </div>
+</footer>
+
+<!-- Floating -->
+<div class="float">
+  <a class="wa" target="_blank"
+     href="https://wa.me/916209267516?text=Hello%20Worklytica%20Team,%20I%20want%20to%20know%20about%20your%20services.">
+    WhatsApp
+  </a>
+  <a class="call" href="tel:6209267516">Call Now</a>
+</div>
+
+<script>
+  document.getElementById("year").innerText = new Date().getFullYear();
+</script>
+
+</body>
+</html>
